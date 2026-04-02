@@ -1,0 +1,37 @@
+{
+  "bio": {
+    "title": "Jheyson Saavedra",
+    "description": "I ask hard questions for a living — some with SQL, some without. I'm a data analyst trained in Philosophy, which means I care about *why* the numbers say what they say, not just what they show.",
+    "current": "Previously, I helped reduce fraud exposure by 83% at Holafly, built dashboards with BigQuery and Looker Studio, and automated reporting workflows. Now I'm finishing my Philosophy degree at Universidad del Atlántico and looking for my next role.",
+    "personal": "I read, listen to music, and build tools like Clipio — a clipboard manager for browsers."
+  },
+  "nav": {
+    "work": "work",
+    "library": "library",
+    "lab": "lab",
+    "contact": "contact"
+  },
+  "social": {
+    "github": "github",
+    "linkedin": "linkedin",
+    "twitter": "x"
+  },
+  "meta": {
+    "description": "Data analyst and philosophy student"
+  },
+  "pages": {
+    "work": {
+      "title": "Work",
+      "description": "A few highlights from my professional experience."
+    },
+    "library": {
+      "title": "Library",
+      "description": "Work in progress. This will contain philosophical essays and academic writing.",
+      "wip": "Coming soon"
+    },
+    "lab": {
+      "title": "Lab",
+      "description": "Projects, experiments, and tools I've built."
+    }
+  }
+}

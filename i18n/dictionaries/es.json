@@ -1,0 +1,37 @@
+{
+  "bio": {
+    "title": "Jheyson Saavedra",
+    "description": "Hago preguntas difíciles como trabajo — algunas con SQL, otras sin él. Soy analista de datos con formación en Filosofía, lo que significa que me importa *por qué* los números dicen lo que dicen, no solo qué muestran.",
+    "current": "Antes, ayudé a reducir la exposición al fraude en un 83% en Holafly, construí dashboards con BigQuery y Looker Studio, y automaticé flujos de reportes. Ahora estoy terminando mi carrera de Filosofía en la Universidad del Atlántico y buscando mi próximo reto.",
+    "personal": "Leo, escucho música, y construyo herramientas como Clipio — un gestor de clipboard para navegadores."
+  },
+  "nav": {
+    "work": "trabajo",
+    "library": "biblioteca",
+    "lab": "lab",
+    "contact": "contacto"
+  },
+  "social": {
+    "github": "github",
+    "linkedin": "linkedin", 
+    "twitter": "x"
+  },
+  "meta": {
+    "description": "Analista de datos y estudiante de filosofía"
+  },
+  "pages": {
+    "work": {
+      "title": "Trabajo",
+      "description": "Algunos aspectos destacados de mi experiencia profesional."
+    },
+    "library": {
+      "title": "Biblioteca",
+      "description": "Trabajo en progreso. Contendrá ensayos filosóficos y escritura académica.",
+      "wip": "Próximamente"
+    },
+    "lab": {
+      "title": "Lab",
+      "description": "Proyectos, experimentos y herramientas que he construido."
+    }
+  }
+}
