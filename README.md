@@ -63,4 +63,4 @@ Inspired by [leerob.com](https://leerob.com), this portfolio focuses on:
 
 ---
 
-Built with ❤️ by [Jheyson Saavedra](mailto:contact@jheysonsaavedra.com)
+Built with ❤️ and ☕ by [Jheyson Saavedra](mailto:contact@jheysonsaavedra.com)

@@ -2,36 +2,43 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { locales, localeNames, type Locale } from '../i18n/config';
 
-interface LanguageSwitcherProps {
-  currentLocale: Locale;
-}
-
-export function LanguageSwitcher({ currentLocale }: LanguageSwitcherProps) {
+export function LanguageSwitcher() {
   const pathname = usePathname();
   
-  const getLocalizedPath = (locale: Locale) => {
-    // Remove current locale from pathname and add new locale
-    const pathWithoutLocale = pathname.replace(/^\/[^\/]+/, '');
-    return `/${locale}${pathWithoutLocale}`;
+  // Determine current locale and clean path
+  const isSpanish = pathname.startsWith('/es');
+  const currentLocale = isSpanish ? 'es' : 'en';
+  
+  // Extract the actual path without locale prefix
+  const cleanPath = isSpanish 
+    ? pathname.replace(/^\/es/, '') || '/' 
+    : pathname.replace(/^\/en/, '') || '/';
+  
+  const getLocalizedPath = (locale: 'en' | 'es') => {
+    if (locale === 'en') {
+      // For English: use clean path directly (or /en + clean path)
+      return cleanPath === '/' ? '/en' : `/en${cleanPath}`;
+    } else {
+      // For Spanish: add /es prefix to clean path  
+      return cleanPath === '/' ? '/es' : `/es${cleanPath}`;
+    }
   };
 
   return (
-    <div className="flex gap-2 text-sm">
-      {locales.map((locale) => (
-        <Link
-          key={locale}
-          href={getLocalizedPath(locale)}
-          className={`${
-            currentLocale === locale 
-              ? 'text-foreground font-medium' 
-              : 'text-muted-foreground hover:text-foreground'
-          } transition-colors`}
-        >
-          {locale.toUpperCase()}
-        </Link>
-      ))}
+    <div className="language-switcher flex gap-2 text-sm">
+      <Link
+        href={getLocalizedPath('en')}
+        className={currentLocale === 'en' ? 'active' : ''}
+      >
+        EN
+      </Link>
+      <Link
+        href={getLocalizedPath('es')}
+        className={currentLocale === 'es' ? 'active' : ''}
+      >
+        ES
+      </Link>
     </div>
   );
 }

@@ -82,3 +82,33 @@
 body {
   @apply bg-background text-foreground font-sans;
 }
+
+/* Default link styles - persistent underlines for body text with hover effects */
+main a, 
+.prose a,
+p a,
+section a {
+  @apply text-foreground underline decoration-1 underline-offset-4 transition-all duration-200;
+}
+
+main a:hover,
+.prose a:hover, 
+p a:hover,
+section a:hover {
+  @apply opacity-70;
+}
+
+/* Navigation and standalone links - no underline normally, show on hover */
+nav a,
+.no-persistent-underline {
+  @apply no-underline underline-offset-4 hover:underline hover:opacity-70 transition-all duration-200;
+}
+
+/* Language switcher - opacity only, no underlines */
+.language-switcher a {
+  @apply no-underline opacity-75 hover:opacity-100 transition-opacity;
+}
+
+.language-switcher a.active {
+  @apply opacity-100 font-semibold;
+}

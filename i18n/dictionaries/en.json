@@ -1,19 +1,43 @@
 {
   "bio": {
-    "title": "Jheyson Saavedra",
-    "description": "I ask hard questions for a living — some with SQL, some without. I'm a data analyst trained in Philosophy, which means I care about *why* the numbers say what they say, not just what they show.",
-    "current": "Previously, I helped reduce fraud exposure by 83% at Holafly, built dashboards with BigQuery and Looker Studio, and automated reporting workflows. Now I'm finishing my Philosophy degree at Universidad del Atlántico and looking for my next role.",
-    "personal": "I read, listen to music, and build tools like Clipio — a clipboard manager for browsers."
+    "greeting": "Hello, I'm",
+    "name": "Jheyson Saavedra",
+    "description": "I'm Data Analyst and Philosophy Student. I find patterns in chaos and turn them into decisions making systems easier to understand and harder to break.",
+    "current": "With a background in philosophy, I approach problems structurally: building dashboards, automations, and analytical frameworks that reduce uncertainty. Currently working at the intersection of CX operations, risk, and data, with a growing interest in deeper analytical work.",
+    "background": "I've been building and programming since I was a kid, driven by a curiosity for how systems behave. I'm also deeply drawn to space, probably because it's the ultimate reminder of how much there is to explore and understand.",
+    "personal": {
+      "prefix": "I love to read, listen to music, and build tools. You can see my",
+      "work": "work",
+      "afterWork": ", explore my",
+      "lab": "lab",
+      "afterLab": "experiments, check out my philosophical",
+      "library": "library",
+      "afterLibrary": "(work in progress), or just vibe to my",
+      "music": "music taste",
+      "suffix": "."
+    },
+    "connect": {
+      "prefix": "You can check out my",
+      "code": "code",
+      "afterCode": ", connect with me on",
+      "linkedin": "LinkedIn",
+      "afterLinkedin": ", or",
+      "twitter": "follow me",
+      "afterTwitter": "online. Feel free to",
+      "email": "reach out",
+      "suffix": "if you want to chat by email."
+    }
   },
   "nav": {
     "work": "work",
     "library": "library",
     "lab": "lab",
+    "music": "music",
     "contact": "contact"
   },
   "social": {
     "github": "github",
-    "linkedin": "linkedin",
+    "linkedin": "linkedin", 
     "twitter": "x"
   },
   "meta": {
@@ -25,13 +49,31 @@
       "description": "A few highlights from my professional experience."
     },
     "library": {
-      "title": "Library",
+      "title": "Library", 
       "description": "Work in progress. This will contain philosophical essays and academic writing.",
       "wip": "Coming soon"
     },
     "lab": {
       "title": "Lab",
       "description": "Projects, experiments, and tools I've built."
+    },
+    "music": {
+      "title": "Music",
+      "description": "What I'm listening to, powered by Spotify.",
+      "topTracks": "Top Tracks",
+      "topArtists": "Top Artists",
+      "spotify": "Open on Spotify",
+      "error": "Unable to load music data. Please try again later."
+    },
+    "notFound": {
+      "title": "Lost in space",
+      "description": "This page drifted away into the void. Let's get you back to solid ground."
     }
+  },
+  "navigation": {
+    "backToEarth": "Back to earth",
+    "backToBase": "Back to base", 
+    "returnToShip": "Return to ship",
+    "backToGround": "Back to ground control"
   }
 }
