@@ -72,7 +72,15 @@ export default async function MusicPage({
         </h1>
 
         <p className="mb-12">
-          {dict.pages.music.description}
+          {dict.pages.music.description}{' '}
+          <a
+            href="https://open.spotify.com/user/pu2wzcz975u24ql133gqi3d9q"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {dict.pages.music.mySpotify}
+          </a>
+          .
         </p>
       </div>
 

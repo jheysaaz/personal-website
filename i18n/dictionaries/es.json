@@ -59,7 +59,8 @@
     },
     "music": {
       "title": "Música",
-      "description": "Lo que estoy escuchando, powered by Spotify.",
+      "description": "Lo que estoy escuchando, powered by Spotify. Sígueme en",
+      "mySpotify": "mi Spotify",
       "topTracks": "Top Tracks",
       "topArtists": "Top Artists",
       "spotify": "Abrir en Spotify",

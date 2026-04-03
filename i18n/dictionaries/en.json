@@ -59,7 +59,8 @@
     },
     "music": {
       "title": "Music",
-      "description": "What I'm listening to, powered by Spotify.",
+      "description": "What I'm listening to, powered by Spotify. Follow me on",
+      "mySpotify": "my Spotify",
       "topTracks": "Top Tracks",
       "topArtists": "Top Artists",
       "spotify": "Open on Spotify",

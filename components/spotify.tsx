@@ -10,7 +10,7 @@ export function Track({ track, rank }: TrackProps) {
   return (
     <div className="flex items-center space-x-3 py-2">
       <div className="flex-shrink-0 w-6 text-right">
-        <span className="text-sm font-mono text-foreground">
+        <span className="text-xs font-serif text-muted-foreground">
           {rank}
         </span>
       </div>
@@ -53,7 +53,7 @@ export function Artist({ artist, rank }: ArtistProps) {
   return (
     <div className="flex items-center space-x-3 py-2">
       <div className="flex-shrink-0 w-6 text-right">
-        <span className="text-sm font-mono text-foreground">
+        <span className="text-xs font-serif text-muted-foreground">
           {rank}
         </span>
       </div>
