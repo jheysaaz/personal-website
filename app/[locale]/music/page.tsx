@@ -84,7 +84,7 @@ export default async function MusicPage({
         <div className="grid gap-12 md:grid-cols-2">
           {/* Top Tracks */}
           <div>
-            <h2 className="font-semibold text-lg mb-6 tracking-tight">
+            <h2 className="font-semibold text-lg mb-6 tracking-tight font-serif">
               {dict.pages.music.topTracks}
             </h2>
             <div className="space-y-2">
@@ -96,7 +96,7 @@ export default async function MusicPage({
 
           {/* Top Artists */}
           <div>
-            <h2 className="font-semibold text-lg mb-6 tracking-tight">
+            <h2 className="font-semibold text-lg mb-6 tracking-tight font-serif">
               {dict.pages.music.topArtists}
             </h2>
             <div className="space-y-2">

@@ -4,12 +4,12 @@ export const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-  preload: true,
-  weight: "variable"
+  weight: 'variable',
 })
 
 export const newsreader = Newsreader({
   subsets: ['latin'],
   variable: '--font-newsreader',
   display: 'swap',
+  preload: false,
 })

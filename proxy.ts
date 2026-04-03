@@ -37,6 +37,9 @@ export function proxy(request: NextRequest) {
     const newUrl = new URL(`/${locale}${pathname}`, request.url);
     return NextResponse.redirect(newUrl);
   }
+
+  // Continue to the next handler if locale is already present
+  return NextResponse.next();
 }
 
 export const config = {

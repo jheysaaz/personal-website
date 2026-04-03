@@ -14,14 +14,14 @@ export function Track({ track, rank }: TrackProps) {
           {rank}
         </span>
       </div>
-      <div className="flex-shrink-0">
+      <div className="relative flex-shrink-0 w-12 h-12">
         {track.album.images[0] && (
           <Image
-            className="rounded"
+            className="rounded object-cover"
             src={track.album.images[0].url}
             alt={`${track.album.name} album cover`}
-            width={48}
-            height={48}
+            fill
+            sizes="48px"
           />
         )}
       </div>
@@ -30,15 +30,15 @@ export function Track({ track, rank }: TrackProps) {
           href={track.external_urls.spotify}
           target="_blank"
           rel="noopener noreferrer"
-          className="block no-persistent-underline"
+          className="no-persistent-underline"
         >
           <p className="text-foreground font-medium truncate text-sm">
             {track.name}
           </p>
-          <p className="text-foreground text-sm truncate">
-            {track.artists.map(artist => artist.name).join(', ')}
-          </p>
         </a>
+        <p className="text-muted-foreground text-xs truncate">
+          {track.artists.map(artist => artist.name).join(', ')}
+        </p>
       </div>
     </div>
   );
@@ -57,14 +57,14 @@ export function Artist({ artist, rank }: ArtistProps) {
           {rank}
         </span>
       </div>
-      <div className="flex-shrink-0">
+      <div className="relative flex-shrink-0 w-12 h-12">
         {artist.images[0] && (
           <Image
-            className="rounded-full"
+            className="rounded-full object-cover"
             src={artist.images[0].url}
             alt={`${artist.name} profile picture`}
-            width={48}
-            height={48}
+            fill
+            sizes="48px"
           />
         )}
       </div>
