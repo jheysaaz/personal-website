@@ -26,7 +26,9 @@ export const handler = define.middleware((ctx) => {
   const preferred = locales.find((l) => acceptLanguage.includes(l));
   const locale = normalizeLocale(preferred);
 
-  const url = new URL(ctx.url);
-  url.pathname = `/${locale}${pathname}`;
-  return Response.redirect(url, 302);
+  const dest = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
+  return new Response(null, {
+    status: 302,
+    headers: { Location: dest },
+  });
 });
