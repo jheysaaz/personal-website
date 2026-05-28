@@ -17,20 +17,6 @@ export default define.page(function App({ Component, url }: PageProps) {
         <meta name="robots" content="index, follow" />
         <title>Jheyson Saavedra</title>
         <link rel="canonical" href={url.href} />
-        <link
-          rel="preload"
-          href="/fonts/InterVariable.woff2"
-          as="font"
-          type="font/woff2"
-          crossorigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Newsreader[opsz,wght].woff2"
-          as="font"
-          type="font/woff2"
-          crossorigin="anonymous"
-        />
         <style>
           {`@font-face{font-family:"Inter";src:url("/fonts/InterVariable.woff2") format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Inter";src:url("/fonts/InterVariable-Italic.woff2") format("woff2");font-weight:100 900;font-style:italic;font-display:swap}

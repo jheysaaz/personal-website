@@ -24,7 +24,7 @@ export const handler = define.handlers<Data>(async (ctx) => {
   return {
     data: { dict, locale, posts },
     headers: {
-      "Cache-Control": "private, max-age=300, must-revalidate",
+      "Cache-Control": "public, max-age=60, stale-while-revalidate=86400",
     },
   };
 });

@@ -5,7 +5,7 @@ export const handler = define.middleware(async (ctx) => {
   if (!response.headers.has("Cache-Control")) {
     response.headers.set(
       "Cache-Control",
-      "private, max-age=300, must-revalidate",
+      "public, max-age=60, stale-while-revalidate=86400",
     );
   }
   return response;

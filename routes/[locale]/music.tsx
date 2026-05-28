@@ -62,7 +62,7 @@ export const handler = define.handlers(async (ctx) => {
   return {
     ...response,
     headers: {
-      "Cache-Control": "private, max-age=300, must-revalidate",
+      "Cache-Control": "public, max-age=60, stale-while-revalidate=86400",
     },
   };
 });
