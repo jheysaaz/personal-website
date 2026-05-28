@@ -68,7 +68,6 @@ SPOTIFY_REFRESH_TOKEN=...
 
 ## ✅ Quality
 
-
 Run these regularly:
 
 ```bash

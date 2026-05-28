@@ -71,17 +71,20 @@ export default define.page<typeof handler>(({ data }) => {
             </p>
           )
           : (
-            <div class="space-y-10">
+            <div class="space-y-4">
               {posts.map((post) => (
-                <article key={post.slug}>
+                <article
+                  key={post.slug}
+                  class="bg-card border border-border rounded-lg p-5 hover:bg-muted transition-colors duration-200"
+                >
                   <a
                     href={`/${locale}/library/${post.slug}`}
-                    class="block space-y-2 group"
+                    class="block space-y-2"
                   >
                     <time class="text-xs text-muted-foreground">
                       {formatDate(post.date, locale)}
                     </time>
-                    <h2 class="text-lg font-medium text-foreground group-hover:opacity-70 transition-opacity">
+                    <h2 class="text-lg font-medium text-foreground">
                       {post.title}
                     </h2>
                     <p class="text-sm text-muted-foreground leading-relaxed">

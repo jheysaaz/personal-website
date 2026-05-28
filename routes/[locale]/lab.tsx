@@ -43,11 +43,11 @@ export default define.page<typeof handler>(({ data }) => {
           </p>
         </div>
 
-        <div class="grid gap-8">
+        <div class="grid gap-4">
           {projectList.map((project) => (
             <div
               key={project.title}
-              class="space-y-4 pb-8 border-b border-border last:border-0"
+              class="bg-card border border-border rounded-lg p-5 hover:bg-muted transition-colors duration-200 space-y-4"
             >
               <div>
                 <h2 class="text-lg font-medium text-foreground mb-2">

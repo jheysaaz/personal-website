@@ -23,8 +23,8 @@ export default define.page(function App({ Component, url }: PageProps) {
         class="min-h-full flex flex-col"
       >
         <Partial name="page">
-          <div class="max-w-2xl mx-auto px-4 py-8 md:py-12 sm:px-6 lg:px-8 w-full">
-            <div class="flex justify-end mb-4 md:mb-8">
+          <div class="max-w-2xl mx-auto px-4 py-6 md:py-12 sm:px-6 lg:px-8 w-full">
+            <div class="flex justify-end mb-3 md:mb-8">
               <LanguageSwitcher pathname={url.pathname} />
             </div>
             <Component />

@@ -15,6 +15,26 @@ export interface Project {
 export const projects: Record<"en" | "es", Project[]> = {
   en: [
     {
+      title: "Knox",
+      description:
+        "Offline desktop app for batch OCR, cleaning, and PDF compression",
+      longDescription:
+        "A Tauri-based desktop application that provides batch OCR processing for PDFs using a Rust-native Tesseract FFI pipeline. Features image preprocessing (denoising, binarization, deskew), CCITT Group 4 compression, PDF/A compliance, and real-time per-file progress tracking. Built with React 19, Tailwind CSS, and shadcn/ui.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tauri",
+        "Rust",
+        "Tailwind CSS",
+        "shadcn/ui",
+      ],
+      links: {
+        github: "https://github.com/jheysaaz/knox",
+      },
+      status: "active",
+      featured: true,
+    },
+    {
       title: "Clipio",
       description: "Advanced clipboard and snippet manager for browsers",
       longDescription:
@@ -37,6 +57,26 @@ export const projects: Record<"en" | "es", Project[]> = {
     },
   ],
   es: [
+    {
+      title: "Knox",
+      description:
+        "App de escritorio offline para OCR por lotes, limpieza y compresión de PDFs",
+      longDescription:
+        "Una aplicación de escritorio basada en Tauri que procesa PDFs con OCR por lotes mediante un pipeline nativo en Rust con Tesseract FFI. Incluye preprocesamiento de imágenes (denoising, binarización, deskew), compresión CCITT Group 4, cumplimiento PDF/A y seguimiento de progreso en tiempo real. Construida con React 19, Tailwind CSS y shadcn/ui.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tauri",
+        "Rust",
+        "Tailwind CSS",
+        "shadcn/ui",
+      ],
+      links: {
+        github: "https://github.com/jheysaaz/knox",
+      },
+      status: "active",
+      featured: true,
+    },
     {
       title: "Clipio",
       description: "Gestor avanzado de clipboard y snippets para navegadores",
