@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=Newsreader:opsz,wght@6..72,200..800&display=swap");
+
 @import "tailwindcss";
 
 :root {
@@ -67,12 +69,21 @@
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-ring: hsl(var(--ring));
-  
+
   --radius: var(--radius);
-  
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-newsreader);
-  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Newsreader", ui-serif, Georgia, serif;
+  --font-mono:
+    ui-monospace,
+    SFMono-Regular,
+    "SF Mono",
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
 }
 
 * {
@@ -83,8 +94,7 @@ body {
   @apply bg-background text-foreground font-sans;
 }
 
-/* Default link styles - persistent underlines for body text with hover effects */
-main a, 
+main a,
 .prose a,
 p a,
 section a {
@@ -92,23 +102,47 @@ section a {
 }
 
 main a:hover,
-.prose a:hover, 
+.prose a:hover,
 p a:hover,
 section a:hover {
   @apply opacity-70;
 }
 
-/* Navigation and standalone links - no underline normally, show on hover */
 nav a,
 .no-persistent-underline {
   @apply no-underline underline-offset-4 hover:underline hover:opacity-70 transition-all duration-200;
 }
 
-/* Language switcher - opacity only, no underlines */
 .language-switcher a {
   @apply no-underline opacity-75 hover:opacity-100 transition-opacity;
 }
 
 .language-switcher a.active {
   @apply opacity-100 font-semibold;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease-in;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.2s ease-out;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,7 +1,7 @@
 {
   "bio": {
     "greeting": "Hola, soy",
-    "name": "Jheyson Saavedra", 
+    "name": "Jheyson Saavedra",
     "description": "Soy analista de datos y estudiante de filosofía. Soy capaz de encontrar patrones en el caos y transformarlos en sistemas de toma de decisiones más fáciles de entender y más difíciles de vulnerar.",
     "current": "Con mi formación en filosofía, abordo los problemas de forma estructural: diseño paneles de control, automatizaciones y marcos analíticos que reducen la incertidumbre. Actualmente trabajo en la intersección de las operaciones de experiencia del cliente, el riesgo de fraude y el analisis de los datos, con un creciente interés en el análisis en mayor profundidad.",
     "background": "He estado construyendo y programando desde hace años, impulsado por la curiosidad sobre cómo se comportan los sistemas. También me atrae profundamente el espacio, probablemente porque es el recordatorio más grande de cuánto queda por explorar y entender.",
@@ -54,7 +54,7 @@
       "wip": "Próximamente"
     },
     "lab": {
-      "title": "Lab", 
+      "title": "Lab",
       "description": "Proyectos, experimentos y herramientas que he construido."
     },
     "music": {

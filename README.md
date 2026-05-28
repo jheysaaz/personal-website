@@ -1,13 +1,14 @@
 # Jheyson Saavedra - Portfolio
 
-A personal portfolio website showcasing the intersection of philosophy and data analysis.
+A personal portfolio website showcasing the intersection of philosophy and data
+analysis.
 
 ## 🚀 Built With
 
-- **Next.js 16.2** - React framework with App Router
-- **TypeScript** - Type safety
+- **Fresh 2.3** - Deno web framework with island architecture
+- **Deno** - TypeScript-first runtime
 - **Tailwind CSS v4** - Modern styling
-- **Framer Motion** - Smooth animations
+- **Preact** - Lightweight React alternative
 - **Inter & Newsreader** - Typography system
 - **i18n Support** - English and Spanish
 
@@ -16,50 +17,64 @@ A personal portfolio website showcasing the intersection of philosophy and data 
 - **Bilingual** - Auto-detects browser language, supports EN/ES
 - **Dark Mode** - Respects system preferences
 - **Responsive** - Works on all devices
-- **Performance** - Static generation with SSG
+- **Performance** - Server-rendered with zero JS by default
 - **Accessibility** - Semantic HTML and proper contrast
 
 ## 🏗️ Architecture
 
 ```
 personal-website/
-├── app/[locale]/          # Locale-based routing
-├── components/            # Reusable components
+├── routes/               # File-based routing
+├── components/           # Server-only components
 ├── content/              # Data for work, projects
 ├── i18n/                 # Internationalization
-└── lib/                  # Utilities and fonts
+├── lib/                  # Utilities
+├── static/               # Static assets
+└── utils/                # Helpers
 ```
 
 ## 🛠️ Development
 
 ```bash
 # Install dependencies
-pnpm install
+deno install
 
 # Start development server
-pnpm dev
+deno task dev
 
 # Build for production
-pnpm build
+deno task build
 
 # Start production server
-pnpm start
+deno task start
 ```
 
 ## 📄 Pages
 
-- **Home** (`/`) - Bio and navigation
-- **Work** (`/work`) - Professional experience
-- **Library** (`/library`) - Philosophical essays (WIP)
-- **Lab** (`/lab`) - Projects and experiments
+- **Home** (`/en`, `/es`) - Bio and navigation
+- **Work** (`/en/work`, `/es/work`) - Professional experience
+- **Library** (`/en/library`, `/es/library`) - Philosophical essays (WIP)
+- **Lab** (`/en/lab`, `/es/lab`) - Projects and experiments
+- **Music** (`/en/music`, `/es/music`) - Spotify top tracks/artists
 
-## 🎨 Design Philosophy
+## 🔐 Environment
 
-Inspired by [leerob.com](https://leerob.com), this portfolio focuses on:
-- **Content-first** - No traditional header/footer
-- **Minimal animations** - Subtle and performant
-- **Typography-driven** - Clean, readable design
-- **Professional yet personal** - Reflects both technical and philosophical sides
+```
+SITE_URL=https://jheysonsaavedra.com
+SPOTIFY_CLIENT_ID=...
+SPOTIFY_CLIENT_SECRET=...
+SPOTIFY_REFRESH_TOKEN=...
+```
+
+## ✅ Quality
+
+Run these regularly:
+
+```bash
+deno fmt
+deno lint
+deno test
+```
 
 ---
 

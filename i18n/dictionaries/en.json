@@ -37,7 +37,7 @@
   },
   "social": {
     "github": "github",
-    "linkedin": "linkedin", 
+    "linkedin": "linkedin",
     "twitter": "x"
   },
   "meta": {
@@ -49,7 +49,7 @@
       "description": "A few highlights from my professional experience."
     },
     "library": {
-      "title": "Library", 
+      "title": "Library",
       "description": "Work in progress. This will contain philosophical essays and academic writing.",
       "wip": "Coming soon"
     },
@@ -73,7 +73,7 @@
   },
   "navigation": {
     "backToEarth": "Back to earth",
-    "backToBase": "Back to base", 
+    "backToBase": "Back to base",
     "returnToShip": "Return to ship",
     "backToGround": "Back to ground control"
   }

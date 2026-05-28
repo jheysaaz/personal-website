@@ -4,7 +4,7 @@ interface TechBadgeProps {
 
 export function TechBadge({ tech }: TechBadgeProps) {
   return (
-    <span className="px-2 py-1 text-xs bg-muted text-foreground rounded-md">
+    <span class="px-2 py-1 text-xs bg-muted text-foreground rounded-md">
       {tech}
     </span>
   );
@@ -12,15 +12,15 @@ export function TechBadge({ tech }: TechBadgeProps) {
 
 interface TechBadgeListProps {
   technologies: string[];
-  className?: string;
+  class?: string;
 }
 
-export function TechBadgeList({ technologies, className = '' }: TechBadgeListProps) {
+export function TechBadgeList(
+  { technologies, ...props }: TechBadgeListProps,
+) {
   return (
-    <div className={`flex flex-wrap gap-2 ${className}`}>
-      {technologies.map((tech) => (
-        <TechBadge key={tech} tech={tech} />
-      ))}
+    <div class={`flex flex-wrap gap-2 ${props.class ?? ""}`}>
+      {technologies.map((tech) => <TechBadge key={tech} tech={tech} />)}
     </div>
   );
 }

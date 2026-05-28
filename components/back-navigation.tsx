@@ -1,5 +1,4 @@
-import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from "lucide-preact";
 
 interface BackNavigationProps {
   href: string;
@@ -8,14 +7,14 @@ interface BackNavigationProps {
 
 export function BackNavigation({ href, label }: BackNavigationProps) {
   return (
-    <div className="flex items-start mb-16">
-      <Link 
-        href={href} 
-        className="text-foreground no-persistent-underline inline-flex items-center gap-2"
+    <div class="flex items-start mb-16">
+      <a
+        href={href}
+        class="text-foreground no-persistent-underline inline-flex items-center gap-2"
       >
-        <ArrowLeft className="w-4 h-4" />
+        <ArrowLeft class="w-4 h-4" />
         {label}
-      </Link>
+      </a>
     </div>
   );
 }
