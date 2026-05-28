@@ -4,6 +4,7 @@ _fresh/
 out/
 build
 coverage
+cov_profile/
 .env
 .vercel
 *.tsbuildinfo

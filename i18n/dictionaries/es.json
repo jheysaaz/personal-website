@@ -50,8 +50,8 @@
     },
     "library": {
       "title": "Biblioteca",
-      "description": "Trabajo en progreso. Contendrá ensayos filosóficos y escritura académica.",
-      "wip": "Próximamente"
+      "description": "Ensayos filosóficos, escritura académica y reflexiones.",
+      "wip": "No hay artículos aún"
     },
     "lab": {
       "title": "Lab",
