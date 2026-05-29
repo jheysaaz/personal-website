@@ -35,7 +35,8 @@ export function parseFrontmatter(text: string):
 
 export async function getPost(slug: string): Promise<Post | null> {
   const posts = await listPosts();
-  return posts.find((p) => p.slug === slug) ?? null;
+  const normalized = normalizeSlug(slug);
+  return posts.find((p) => p.slug === normalized) ?? null;
 }
 
 export async function listPosts(): Promise<Post[]> {
@@ -50,7 +51,7 @@ export async function listPosts(): Promise<Post[]> {
     for await (const entry of Deno.readDir(dir)) {
       if (!entry.isFile || !entry.name.endsWith(".md")) continue;
 
-      const slug = entry.name.replace(/\.md$/, "");
+      const slug = normalizeSlug(entry.name.replace(/\.md$/, ""));
       const text = await Deno.readTextFile(`${dir}/${entry.name}`);
       const { title, date, body } = parseFrontmatter(text);
       posts.push({ slug, title, date, content: body });
@@ -85,6 +86,15 @@ export function toPost(p: RawPost): Post {
     excerpt,
     content: rendered,
   };
+}
+
+export function normalizeSlug(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 export function formatDate(iso: string, locale: string): string {
