@@ -19,7 +19,7 @@ export default define.page<typeof handler>(({ data }) => {
   const canonical = canonicalUrl(`/${locale}/work`);
 
   return (
-    <div class="space-y-12">
+    <div class="space-y-8 md:space-y-12">
       <Head>
         <title>{dict.pages.work.title}</title>
         <meta name="description" content={dict.pages.work.description} />
@@ -33,7 +33,7 @@ export default define.page<typeof handler>(({ data }) => {
         label={dict.navigation.backToBase}
       />
 
-      <div class="space-y-12">
+      <div class="space-y-8 md:space-y-12">
         <div>
           <h1 class="text-2xl font-semibold tracking-tight text-foreground mb-4 font-serif">
             {dict.pages.work.title}
@@ -43,9 +43,11 @@ export default define.page<typeof handler>(({ data }) => {
           </p>
         </div>
 
-        <div class="space-y-12">
+        <div>
           {experiences.map((exp, index) => (
-            <div key={index} class="space-y-4">
+            <div key={index}>
+              {index > 0 && <hr class="border-border my-8 md:my-12" />}
+              <div class="space-y-4">
               <div>
                 <h2 class="text-lg font-medium text-foreground">
                   {exp.title}
@@ -73,6 +75,7 @@ export default define.page<typeof handler>(({ data }) => {
               {exp.technologies && (
                 <TechBadgeList technologies={exp.technologies} />
               )}
+            </div>
             </div>
           ))}
         </div>

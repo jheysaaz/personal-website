@@ -2,9 +2,8 @@
   "bio": {
     "greeting": "Hola, soy",
     "name": "Jheyson Saavedra",
-    "description": "Soy analista de datos y estudiante de filosofía. Soy capaz de encontrar patrones en el caos y transformarlos en sistemas de toma de decisiones más fáciles de entender y más difíciles de vulnerar.",
-    "current": "Con mi formación en filosofía, abordo los problemas de forma estructural: diseño paneles de control, automatizaciones y marcos analíticos que reducen la incertidumbre. Actualmente trabajo en la intersección de las operaciones de experiencia del cliente, el riesgo de fraude y el analisis de los datos, con un creciente interés en el análisis en mayor profundidad.",
-    "background": "He estado construyendo y programando desde hace años, impulsado por la curiosidad sobre cómo se comportan los sistemas. También me atrae profundamente el espacio, probablemente porque es el recordatorio más grande de cuánto queda por explorar y entender.",
+    "description": "Estudio filosofía y trabajo con datos. No son tan diferentes como la mayoría supone.",
+    "background": "He estado construyendo y programando desde que era un niño, impulsado por la curiosidad sobre cómo se comportan los sistemas. Ahora se manifiesta principalmente en paneles de control, automatizaciones y herramientas que construyo porque algo me molestaba. También me atrae el espacio — probablemente porque es el recordatorio más claro de cuánto queda por entender.",
     "personal": {
       "prefix": "Me gusta mucho leer, escuchar música, y construir herramientas. Puedes ver mi",
       "work": "trabajo",
@@ -12,7 +11,7 @@
       "lab": "lab",
       "afterLab": ", revisar mi",
       "library": "biblioteca",
-      "afterLibrary": "filosófica (trabajo en progreso), o simplemente disfrutar mis",
+      "afterLibrary": "conformada por mis escritos, o simplemente disfrutar con mis",
       "music": "gustos musicales",
       "suffix": "."
     },
@@ -50,7 +49,7 @@
     },
     "library": {
       "title": "Biblioteca",
-      "description": "Ensayos filosóficos, escritura académica y reflexiones.",
+      "description": "Ensayos filosóficos, escritura académica y reflexiones personales.",
       "wip": "No hay artículos aún"
     },
     "lab": {
@@ -60,7 +59,7 @@
     "music": {
       "title": "Música",
       "description": "Lo que estoy escuchando, powered by Spotify. Sígueme en",
-      "mySpotify": "mi Spotify",
+      "mySpotify": "Spotify",
       "topTracks": "Top Tracks",
       "topArtists": "Top Artists",
       "spotify": "Abrir en Spotify",

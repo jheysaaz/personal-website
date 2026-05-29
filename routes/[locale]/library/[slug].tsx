@@ -40,9 +40,6 @@ export const handler = define.handlers<Data>(async (ctx) => {
       content: post.content,
       notFound: false,
     },
-    headers: {
-      "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400",
-    },
   };
 });
 
@@ -53,8 +50,8 @@ export default define.page<typeof handler>(({ data }) => {
 
   if (notFound) {
     return (
-      <div class="space-y-12">
-        <Head>
+      <div class="space-y-8 md:space-y-12">
+      <Head>
           <title>{dict.pages.notFound.title}</title>
           <link rel="canonical" href={canonical} />
         </Head>
@@ -62,14 +59,14 @@ export default define.page<typeof handler>(({ data }) => {
           href={`/${locale}/library`}
           label={dict.navigation.returnToShip}
         />
-        <section class="text-center py-16">
+        <section class="text-center py-10 md:py-16">
           <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
             404
           </h1>
-          <h2 class="font-semibold text-2xl mb-8 tracking-tighter font-serif">
+          <h2 class="font-semibold text-2xl mb-6 md:mb-8 tracking-tighter font-serif">
             {dict.pages.notFound.title}
           </h2>
-          <p class="mb-8 max-w-md mx-auto">
+          <p class="mb-6 md:mb-8 max-w-md mx-auto">
             {dict.pages.notFound.description}
           </p>
         </section>
@@ -78,7 +75,7 @@ export default define.page<typeof handler>(({ data }) => {
   }
 
   return (
-    <div class="space-y-12">
+    <div class="space-y-8 md:space-y-12">
       <Head>
         <title>{title} — {dict.meta.description}</title>
         <meta name="description" content={title} />
@@ -92,7 +89,7 @@ export default define.page<typeof handler>(({ data }) => {
       />
 
       <article>
-        <header class="mb-8">
+        <header class="mb-6 md:mb-8">
           <h1 class="text-2xl font-semibold tracking-tight text-foreground mb-2 font-serif">
             {title}
           </h1>

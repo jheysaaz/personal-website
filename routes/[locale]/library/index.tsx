@@ -21,12 +21,7 @@ export const handler = define.handlers<Data>(async (ctx) => {
     getDictionary(locale),
     listPosts(),
   ]);
-  return {
-    data: { dict, locale, posts },
-    headers: {
-      "Cache-Control": "public, max-age=60, stale-while-revalidate=86400",
-    },
-  };
+  return { data: { dict, locale, posts } };
 });
 
 export default define.page<typeof handler>(({ data }) => {
@@ -34,7 +29,7 @@ export default define.page<typeof handler>(({ data }) => {
   const canonical = canonicalUrl(`/${locale}/library`);
 
   return (
-    <div class="space-y-12">
+    <div class="space-y-8 md:space-y-12">
       <Head>
         <title>{dict.pages.library.title}</title>
         <meta name="description" content={dict.pages.library.description} />
@@ -60,7 +55,7 @@ export default define.page<typeof handler>(({ data }) => {
         <h1 class="text-2xl font-semibold tracking-tight text-foreground mb-4 font-serif">
           {dict.pages.library.title}
         </h1>
-        <p class="text-foreground mb-12">
+        <p class="text-foreground mb-8 md:mb-12">
           {dict.pages.library.description}
         </p>
 
@@ -71,27 +66,19 @@ export default define.page<typeof handler>(({ data }) => {
             </p>
           )
           : (
-            <div class="space-y-4">
+            <div class="space-y-2">
               {posts.map((post) => (
-                <article
-                  key={post.slug}
-                  class="bg-card border border-border rounded-lg p-5 hover:bg-muted transition-colors duration-200"
-                >
+                <div key={post.slug} class="flex items-baseline gap-2">
                   <a
                     href={`/${locale}/library/${post.slug}`}
-                    class="block space-y-2"
+                    class="no-persistent-underline text-foreground hover:opacity-70 transition-opacity"
                   >
-                    <time class="text-xs text-muted-foreground">
-                      {formatDate(post.date, locale)}
-                    </time>
-                    <h2 class="text-lg font-medium text-foreground">
-                      {post.title}
-                    </h2>
-                    <p class="text-sm text-muted-foreground leading-relaxed">
-                      {post.excerpt}
-                    </p>
+                    {post.title}
                   </a>
-                </article>
+                  <time class="text-muted-foreground text-sm shrink-0">
+                    {formatDate(post.date, locale)}
+                  </time>
+                </div>
               ))}
             </div>
           )}

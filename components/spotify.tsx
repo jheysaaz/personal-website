@@ -14,10 +14,11 @@ export function Track({ track, rank }: TrackProps) {
         </span>
       </div>
       <div class="flex-shrink-0 w-12 h-12">
-        {track.album.images[0] && (
+        {track.album.images[track.album.images.length - 1] && (
           <img
             class="rounded object-cover w-full h-full"
-            src={track.album.images[0].url}
+            style="corner-shape: squircle"
+            src={track.album.images[track.album.images.length - 1].url}
             alt={`${track.album.name} album cover`}
             width={48}
             height={48}
@@ -59,10 +60,10 @@ export function Artist({ artist, rank }: ArtistProps) {
         </span>
       </div>
       <div class="flex-shrink-0 w-12 h-12">
-        {artist.images[0] && (
+        {artist.images[artist.images.length - 1] && (
           <img
             class="rounded-full object-cover w-full h-full"
-            src={artist.images[0].url}
+            src={artist.images[artist.images.length - 1].url}
             alt={`${artist.name} profile picture`}
             width={48}
             height={48}

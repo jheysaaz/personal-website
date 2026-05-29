@@ -58,13 +58,7 @@ export const handler = define.handlers(async (ctx) => {
   const locale = normalizeLocale(ctx.params.locale);
   const dict = await getDictionary(locale);
   const musicData = await getMusicData();
-  const response = { data: { dict, locale, musicData } };
-  return {
-    ...response,
-    headers: {
-      "Cache-Control": "public, max-age=60, stale-while-revalidate=86400",
-    },
-  };
+  return { data: { dict, locale, musicData } };
 });
 
 export default define.page<typeof handler>(({ data }) => {
@@ -72,7 +66,7 @@ export default define.page<typeof handler>(({ data }) => {
   const canonical = canonicalUrl(`/${locale}/music`);
 
   return (
-    <section class="space-y-12">
+    <section class="space-y-8 md:space-y-12">
       <Head>
         <title>{dict.pages.music.title}</title>
         <meta name="description" content={dict.pages.music.description} />
@@ -87,11 +81,11 @@ export default define.page<typeof handler>(({ data }) => {
       />
 
       <div>
-        <h1 class="font-semibold text-2xl mb-8 tracking-tighter font-serif">
+        <h1 class="font-semibold text-2xl mb-6 md:mb-8 tracking-tighter font-serif">
           {dict.pages.music.title}
         </h1>
 
-        <p class="mb-12">
+        <p class="mb-8 md:mb-12">
           {dict.pages.music.description}{" "}
           <a
             href="https://open.spotify.com/user/pu2wzcz975u24ql133gqi3d9q"
@@ -111,9 +105,9 @@ export default define.page<typeof handler>(({ data }) => {
           </div>
         )
         : (
-          <div class="grid gap-12 md:grid-cols-2">
+          <div class="grid gap-8 md:gap-12 md:grid-cols-2">
             <div>
-              <h2 class="font-semibold text-lg mb-6 tracking-tight font-serif">
+              <h2 class="font-semibold text-lg mb-4 md:mb-6 tracking-tight font-serif">
                 {dict.pages.music.topTracks}
               </h2>
               <div class="space-y-2">
@@ -124,7 +118,7 @@ export default define.page<typeof handler>(({ data }) => {
             </div>
 
             <div>
-              <h2 class="font-semibold text-lg mb-6 tracking-tight font-serif">
+              <h2 class="font-semibold text-lg mb-4 md:mb-6 tracking-tight font-serif">
                 {dict.pages.music.topArtists}
               </h2>
               <div class="space-y-2">

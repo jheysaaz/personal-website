@@ -18,7 +18,7 @@ export const app = new App()
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
-      "img-src 'self' data:",
+      "img-src 'self' data: https://i.scdn.co",
       "font-src 'self'",
       "media-src 'self' data: blob:",
       "worker-src 'self' blob:",

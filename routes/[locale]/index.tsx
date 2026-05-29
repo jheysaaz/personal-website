@@ -73,9 +73,7 @@ export default define.page<typeof handler>(({ data }) => {
       <div class="space-y-8">
         <div>
           <div class="mb-6">
-            <p class="text-lg text-foreground mb-1">
-              {dict.bio.greeting}
-            </p>
+            <p class="text-lg text-foreground mb-1">{dict.bio.greeting}</p>
             <h1 class="font-serif text-3xl font-semibold tracking-tight text-foreground">
               {dict.bio.name}
             </h1>
@@ -83,35 +81,22 @@ export default define.page<typeof handler>(({ data }) => {
 
           <div class="space-y-5 text-foreground leading-relaxed">
             <p>{dict.bio.description}</p>
-            <p>{dict.bio.current}</p>
-            <p class="hidden md:block">{dict.bio.background}</p>
+            <p>{dict.bio.background}</p>
             <p>
               {dict.bio.personal.prefix}{" "}
-              <a
-                href={`/${locale}/work`}
-                class="body-link"
-              >
+              <a href={`/${locale}/work`} class="body-link">
                 {dict.bio.personal.work}
               </a>
               {dict.bio.personal.afterWork}{" "}
-              <a
-                href={`/${locale}/lab`}
-                class="body-link"
-              >
+              <a href={`/${locale}/lab`} class="body-link">
                 {dict.bio.personal.lab}
               </a>{" "}
               {dict.bio.personal.afterLab}{" "}
-              <a
-                href={`/${locale}/library`}
-                class="body-link"
-              >
+              <a href={`/${locale}/library`} class="body-link">
                 {dict.bio.personal.library}
               </a>{" "}
               {dict.bio.personal.afterLibrary}{" "}
-              <a
-                href={`/${locale}/music`}
-                class="body-link"
-              >
+              <a href={`/${locale}/music`} class="body-link">
                 {dict.bio.personal.music}
               </a>
               {dict.bio.personal.suffix}
@@ -145,10 +130,7 @@ export default define.page<typeof handler>(({ data }) => {
                 {dict.bio.connect.twitter}
               </a>{" "}
               {dict.bio.connect.afterTwitter}{" "}
-              <a
-                href="mailto:contact@jheysonsaavedra.com"
-                class="body-link"
-              >
+              <a href="mailto:contact@jheysonsaavedra.com" class="body-link">
                 {dict.bio.connect.email}
               </a>{" "}
               {dict.bio.connect.suffix}

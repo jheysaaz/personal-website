@@ -26,14 +26,14 @@ export default function ErrorPage({ error }: PageProps) {
 
   if (is404) {
     return (
-      <section class="text-center py-16">
+      <section class="text-center py-10 md:py-16">
         <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
           404
         </h1>
-        <h2 class="font-semibold text-2xl mb-8 tracking-tighter font-serif">
+        <h2 class="font-semibold text-2xl mb-6 md:mb-8 tracking-tighter font-serif">
           Lost in space
         </h2>
-        <p class="mb-8 max-w-md mx-auto">
+        <p class="mb-6 md:mb-8 max-w-md mx-auto">
           This page drifted away into the void. Let's get you back to solid
           ground.
         </p>
@@ -49,11 +49,11 @@ export default function ErrorPage({ error }: PageProps) {
   }
 
   return (
-    <section class="text-center py-16">
+    <section class="text-center py-10 md:py-16">
       <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
         {error instanceof HttpError ? error.status : "500"}
       </h1>
-      <p class="mb-8">Something went wrong. Please try again.</p>
+      <p class="mb-6 md:mb-8">Something went wrong. Please try again.</p>
       <a href="/en" class="inline-flex items-center gap-2">
         <ArrowIcon />
         Go home

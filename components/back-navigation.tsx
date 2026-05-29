@@ -5,7 +5,7 @@ interface BackNavigationProps {
 
 export function BackNavigation({ href, label }: BackNavigationProps) {
   return (
-    <div class="flex items-start mb-16">
+    <div class="flex items-start mb-10 md:mb-16">
       <a
         href={href}
         class="text-foreground no-persistent-underline inline-flex items-center gap-2"
