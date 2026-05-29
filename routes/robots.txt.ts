@@ -12,6 +12,9 @@ export const handler = define.handlers(() => {
   ].join("\n");
 
   return new Response(body, {
-    headers: { "Content-Type": "text/plain" },
+    headers: {
+      "Content-Type": "text/plain",
+      "Cache-Control": "public, max-age=3600",
+    },
   });
 });

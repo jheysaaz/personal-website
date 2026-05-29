@@ -17,7 +17,8 @@ export const handler = define.middleware((ctx) => {
 
   if (
     pathname.startsWith("/robots.txt") || pathname.startsWith("/sitemap.xml") ||
-    pathname.startsWith("/favicon")
+    pathname.startsWith("/favicon") || pathname.startsWith("/rss.xml") ||
+    pathname.startsWith("/llms.txt")
   ) {
     return ctx.next();
   }
