@@ -1,4 +1,5 @@
 import { define } from "../utils.ts";
+import { gfmCss } from "../utils/library.ts";
 import { LanguageSwitcher } from "../components/language-switcher.tsx";
 import type { PageProps } from "fresh";
 import { Partial } from "fresh/runtime";
@@ -16,13 +17,13 @@ export default define.page(function App({ Component, url }: PageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
         <title>Jheyson Saavedra</title>
-        <link rel="canonical" href={url.href} />
         <style>
           {`@font-face{font-family:"Inter";src:url("/fonts/InterVariable.woff2") format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Inter";src:url("/fonts/InterVariable-Italic.woff2") format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
 @font-face{font-family:"Newsreader";src:url("/fonts/Newsreader[opsz,wght].woff2") format("woff2");font-weight:200 800;font-display:swap}
 @font-face{font-family:"Newsreader";src:url("/fonts/Newsreader-Italic[opsz,wght].woff2") format("woff2");font-weight:200 800;font-style:italic;font-display:swap}`}
         </style>
+        <style>{`@layer gfm { ${gfmCss} }`}</style>
       </head>
       <body
         f-client-nav

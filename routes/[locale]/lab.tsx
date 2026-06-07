@@ -27,6 +27,11 @@ export default define.page<typeof handler>(({ data }) => {
         <link rel="canonical" href={canonical} />
         <link rel="alternate" hrefLang="en" href={canonicalUrl("/en/lab")} />
         <link rel="alternate" hrefLang="es" href={canonicalUrl("/es/lab")} />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={canonicalUrl("/en/lab")}
+        />
       </Head>
       <BackNavigation
         href={`/${locale}`}

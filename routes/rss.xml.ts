@@ -19,7 +19,8 @@ export const handler = define.handlers(async () => {
 
   const feed = new Rss({
     title: "Jheyson's Library",
-    description: `${siteDefaults.description} (Library posts in English and Espanol.)`,
+    description:
+      `${siteDefaults.description} (Library posts in English and Espanol.)`,
     link: libraryUrl,
     id: feedUrl,
     authors: [

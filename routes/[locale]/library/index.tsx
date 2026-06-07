@@ -44,6 +44,11 @@ export default define.page<typeof handler>(({ data }) => {
         />
         <link
           rel="alternate"
+          hrefLang="x-default"
+          href={canonicalUrl("/en/library")}
+        />
+        <link
+          rel="alternate"
           type="application/rss+xml"
           title="Library RSS"
           href={canonicalUrl("/rss.xml")}
@@ -62,25 +67,25 @@ export default define.page<typeof handler>(({ data }) => {
           {dict.pages.library.description}
         </p>
 
-        {posts.length === 0 ? (
-          <p class="text-muted-foreground">{dict.pages.library.wip}</p>
-        ) : (
-          <div class="space-y-2">
-            {posts.map((post) => (
-              <div key={post.slug} class="flex items-baseline gap-2">
-                <a
-                  href={`/${locale}/library/${post.slug}`}
-                  class="no-persistent-underline text-foreground hover:opacity-70 transition-opacity"
-                >
-                  {post.title}
-                </a>
-                <time class="text-muted-foreground text-sm shrink-0">
-                  {formatDate(post.date, locale)}
-                </time>
-              </div>
-            ))}
-          </div>
-        )}
+        {posts.length === 0
+          ? <p class="text-muted-foreground">{dict.pages.library.wip}</p>
+          : (
+            <div class="space-y-2">
+              {posts.map((post) => (
+                <div key={post.slug} class="flex items-baseline gap-2">
+                  <a
+                    href={`/${locale}/library/${post.slug}`}
+                    class="no-persistent-underline text-foreground hover:opacity-70 transition-opacity"
+                  >
+                    {post.title}
+                  </a>
+                  <time class="text-muted-foreground text-sm shrink-0">
+                    {formatDate(post.date, locale)}
+                  </time>
+                </div>
+              ))}
+            </div>
+          )}
       </div>
     </div>
   );

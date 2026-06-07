@@ -10,10 +10,19 @@ export const handler = define.handlers(async () => {
 
   const posts = await listPosts();
 
-  const buildAlternates = (path: string) =>
-    locales.map((l) =>
-      `      <xhtml:link rel="alternate" hreflang="${l}" href="${siteUrl}/${l}${path}" />`
-    ).join("\n");
+  const buildAlternates = (subPath: string) => {
+    const cleanSubPath = subPath.replace(/^\/(en|es)/, "");
+    const basePath = cleanSubPath === "/" || cleanSubPath === ""
+      ? ""
+      : cleanSubPath;
+    const links = locales.map((l) =>
+      `      <xhtml:link rel="alternate" hreflang="${l}" href="${siteUrl}/${l}${basePath}" />`
+    );
+    links.push(
+      `      <xhtml:link rel="alternate" hreflang="x-default" href="${siteUrl}/en${basePath}" />`,
+    );
+    return links.join("\n");
+  };
 
   const buildUrl = (
     path: string,
@@ -55,12 +64,7 @@ ${alternates}
     })
   );
 
-  const feedUrl = buildUrl("/rss.xml", {
-    changefreq: "weekly",
-    priority: "0.6",
-  }, false);
-
-  const urls = [...staticUrls, ...postUrls, feedUrl].join("\n");
+  const urls = [...staticUrls, ...postUrls].join("\n");
 
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',

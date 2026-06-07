@@ -29,7 +29,7 @@ export const handler = define.middleware((ctx) => {
 
   const dest = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
   return new Response(null, {
-    status: 302,
+    status: 301,
     headers: { Location: dest },
   });
 });

@@ -19,6 +19,15 @@ interface RawPost {
 
 let cached: RawPost[] | null = null;
 
+const isDev = (() => {
+  try {
+    return Deno.env.get("FRESH_DEV") === "true" ||
+      Deno.env.get("DENO_ENV") === "development";
+  } catch {
+    return false;
+  }
+})();
+
 export function parseFrontmatter(text: string):
   & { title: string; date: string }
   & { body: string } {
@@ -40,7 +49,7 @@ export async function getPost(slug: string): Promise<Post | null> {
 }
 
 export async function listPosts(): Promise<Post[]> {
-  if (cached) {
+  if (cached && !isDev) {
     return cached.map(toPost);
   }
 
@@ -68,7 +77,9 @@ export async function listPosts(): Promise<Post[]> {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
-  cached = posts;
+  if (!isDev) {
+    cached = posts;
+  }
   return posts.map(toPost);
 }
 

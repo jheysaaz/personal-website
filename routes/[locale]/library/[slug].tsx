@@ -5,7 +5,7 @@ import { normalizeLocale } from "../../../utils/locale.ts";
 import { BackNavigation } from "../../../components/back-navigation.tsx";
 import { Head } from "fresh/runtime";
 import { canonicalUrl, getSiteUrl, siteDefaults } from "../../../utils/seo.ts";
-import { formatDate, getPost, gfmCss } from "../../../utils/library.ts";
+import { formatDate, getPost } from "../../../utils/library.ts";
 
 // deno-lint-ignore no-explicit-any
 type Dict = any;
@@ -111,6 +111,21 @@ export default define.page<typeof handler>(({ data }) => {
           content={`${siteUrl}${siteDefaults.image}`}
         />
         <link rel="canonical" href={canonical} />
+        <link
+          rel="alternate"
+          hrefLang="en"
+          href={canonicalUrl(`/en/library/${slug}`)}
+        />
+        <link
+          rel="alternate"
+          hrefLang="es"
+          href={canonicalUrl(`/es/library/${slug}`)}
+        />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={canonicalUrl(`/en/library/${slug}`)}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -135,7 +150,6 @@ export default define.page<typeof handler>(({ data }) => {
             }),
           }}
         />
-        <style>{gfmCss}</style>
       </Head>
       <BackNavigation
         href={`/${locale}/library`}
@@ -144,7 +158,7 @@ export default define.page<typeof handler>(({ data }) => {
 
       <article>
         <header class="mb-6 md:mb-8">
-          <h1 class="text-2xl font-semibold tracking-tight text-foreground mb-2 font-serif">
+          <h1 class="text-[1.75rem] font-medium tracking-tight text-foreground mb-2 font-serif">
             {title}
           </h1>
           {date && (
@@ -154,7 +168,7 @@ export default define.page<typeof handler>(({ data }) => {
           )}
         </header>
         <div
-          class="prose prose-neutral dark:prose-invert max-w-none"
+          class="markdown-body max-w-none"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </article>

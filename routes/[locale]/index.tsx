@@ -68,6 +68,11 @@ export default define.page<typeof handler>(({ data }) => {
         <link rel="canonical" href={canonical} />
         <link rel="alternate" hrefLang="en" href={canonicalUrl("/en")} />
         <link rel="alternate" hrefLang="es" href={canonicalUrl("/es")} />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={canonicalUrl("/en")}
+        />
       </Head>
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <div class="space-y-8">

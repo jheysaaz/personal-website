@@ -1,3 +1,5 @@
+@layer base, components, utilities, gfm;
+
 @import "tailwindcss";
 
 :root {
@@ -125,6 +127,155 @@ nav a,
   @apply no-underline underline-offset-4 hover:underline hover:opacity-70 transition-all duration-200;
 }
 
+@layer gfm {
+  .markdown-body {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+    color: hsl(var(--foreground));
+  }
+
+  .markdown-body > * + * {
+    margin-top: 1.25rem;
+  }
+
+  .markdown-body p {
+    margin: 0;
+  }
+
+  .markdown-body strong {
+    font-weight: 600;
+  }
+
+  .markdown-body em {
+    font-style: italic;
+  }
+
+  .markdown-body .anchor {
+    opacity: 0;
+    text-decoration: none;
+    padding-right: 0.25rem;
+    pointer-events: auto;
+  }
+
+  .markdown-body h1:hover .anchor,
+  .markdown-body h2:hover .anchor,
+  .markdown-body h3:hover .anchor,
+  .markdown-body h4:hover .anchor,
+  .markdown-body h5:hover .anchor,
+  .markdown-body .anchor:focus {
+    opacity: 1;
+  }
+
+  .markdown-body.markdown-body h1 {
+    font-size: 1.75rem !important;
+    line-height: 2.2rem;
+    font-weight: 500 !important;
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .markdown-body.markdown-body h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.9rem;
+    font-weight: 500 !important;
+    font-family: var(--font-serif);
+    letter-spacing: -0.015em;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .markdown-body.markdown-body h3 {
+    font-size: 1.15rem !important;
+    line-height: 1.65rem;
+    font-weight: 500 !important;
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .markdown-body.markdown-body h4 {
+    font-size: 1.05rem !important;
+    line-height: 1.55rem;
+    font-weight: 500 !important;
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .markdown-body.markdown-body h5 {
+    font-size: 0.95rem !important;
+    line-height: 1.45rem;
+    font-weight: 500 !important;
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .markdown-body ul,
+  .markdown-body ol {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .markdown-body ul li,
+  .markdown-body ol li {
+    position: relative;
+    padding-left: 1.75rem;
+  }
+
+  .markdown-body ul li::before {
+    content: "*";
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    width: 1.25rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .markdown-body ol {
+    counter-reset: markdown-ol;
+  }
+
+  .markdown-body ol li {
+    counter-increment: markdown-ol;
+  }
+
+  .markdown-body ol li::before {
+    content: counter(markdown-ol) ".";
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    width: 1.25rem;
+    text-align: right;
+    font-size: 0.75rem;
+    font-family: var(--font-serif);
+    color: hsl(var(--muted-foreground));
+  }
+
+  .markdown-body li + li {
+    margin-top: 0.5rem;
+  }
+}
+
 .language-switcher a {
   @apply no-underline opacity-75 hover:opacity-100 transition-opacity;
 }
@@ -158,4 +309,3 @@ nav a,
     opacity: 1;
   }
 }
-

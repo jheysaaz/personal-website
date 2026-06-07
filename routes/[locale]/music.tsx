@@ -74,6 +74,11 @@ export default define.page<typeof handler>(({ data }) => {
         <link rel="canonical" href={canonical} />
         <link rel="alternate" hrefLang="en" href={canonicalUrl("/en/music")} />
         <link rel="alternate" hrefLang="es" href={canonicalUrl("/es/music")} />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href={canonicalUrl("/en/music")}
+        />
       </Head>
       <BackNavigation
         href={`/${locale}`}
