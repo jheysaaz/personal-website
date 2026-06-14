@@ -2,8 +2,8 @@ import { define } from "../../../utils.ts";
 import { getDictionary } from "../../../i18n/get-dictionary.ts";
 import { normalizeLocale } from "../../../utils/locale.ts";
 import { BackNavigation } from "../../../components/back-navigation.tsx";
-import { Head } from "fresh/runtime";
-import { canonicalUrl, siteDefaults } from "../../../utils/seo.ts";
+import { SEO } from "../../../components/seo.tsx";
+import { getSiteUrl } from "../../../utils/seo.ts";
 import { formatDate, listPosts, type Post } from "../../../utils/library.ts";
 
 // deno-lint-ignore no-explicit-any
@@ -23,37 +23,22 @@ export const handler = define.handlers<Data>(async (ctx) => {
 
 export default define.page<typeof handler>(({ data }) => {
   const { dict, locale, posts } = data;
-  const canonical = canonicalUrl(`/${locale}/library`);
 
   return (
     <div class="space-y-8 md:space-y-12">
-      <Head>
-        <title>{dict.pages.library.title}</title>
-        <meta name="description" content={dict.pages.library.description} />
-        <meta name="keywords" content={siteDefaults.keywords} />
-        <link rel="canonical" href={canonical} />
-        <link
-          rel="alternate"
-          hrefLang="en"
-          href={canonicalUrl("/en/library")}
-        />
-        <link
-          rel="alternate"
-          hrefLang="es"
-          href={canonicalUrl("/es/library")}
-        />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={canonicalUrl("/en/library")}
-        />
+      <SEO
+        title={dict.pages.library.title}
+        description={dict.pages.library.description}
+        path="/library"
+        locale={locale}
+      >
         <link
           rel="alternate"
           type="application/rss+xml"
           title="Library RSS"
-          href={canonicalUrl("/rss.xml")}
+          href={`${getSiteUrl()}/rss.xml`}
         />
-      </Head>
+      </SEO>
       <BackNavigation
         href={`/${locale}`}
         label={dict.navigation.returnToShip}

@@ -1,6 +1,7 @@
 import { define } from "../utils.ts";
-import { locales } from "../i18n/config.ts";
-import { normalizeLocale } from "../utils/locale.ts";
+import { locales, defaultLocale } from "../i18n/config.ts";
+
+const botPattern = /bot|crawler|spider|googlebot|bingbot|yandex|slurp|duckduckbot/i;
 
 export const handler = define.middleware((ctx) => {
   const { pathname } = ctx.url;
@@ -23,13 +24,22 @@ export const handler = define.middleware((ctx) => {
     return ctx.next();
   }
 
-  const acceptLanguage = ctx.req.headers.get("Accept-Language") || "";
-  const preferred = locales.find((l) => acceptLanguage.includes(l));
-  const locale = normalizeLocale(preferred);
+  const userAgent = ctx.req.headers.get("User-Agent") || "";
+  const locale = botPattern.test(userAgent)
+    ? defaultLocale
+    : detectLocale(ctx.req.headers.get("Accept-Language") || "");
 
   const dest = pathname === "/" ? `/${locale}` : `/${locale}${pathname}`;
   return new Response(null, {
     status: 301,
-    headers: { Location: dest },
+    headers: {
+      Location: dest,
+      "X-Robots-Tag": "noindex, nofollow",
+    },
   });
 });
+
+function detectLocale(acceptLanguage: string): string {
+  const preferred = locales.find((l) => acceptLanguage.includes(l));
+  return preferred ?? defaultLocale;
+}

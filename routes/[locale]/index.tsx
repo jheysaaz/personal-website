@@ -1,8 +1,8 @@
 import { define } from "../../utils.ts";
 import { getDictionary } from "../../i18n/get-dictionary.ts";
 import { normalizeLocale } from "../../utils/locale.ts";
-import { canonicalUrl, getSiteUrl, siteDefaults } from "../../utils/seo.ts";
-import { Head } from "fresh/runtime";
+import { getSiteUrl } from "../../utils/seo.ts";
+import { SEO } from "../../components/seo.tsx";
 
 export const handler = define.handlers(async (ctx) => {
   const locale = normalizeLocale(ctx.params.locale);
@@ -13,7 +13,6 @@ export const handler = define.handlers(async (ctx) => {
 export default define.page<typeof handler>(({ data }) => {
   const { dict, locale } = data;
   const siteUrl = getSiteUrl();
-  const canonical = canonicalUrl(`/${locale}`);
   const title = `${dict.bio.name} - ${dict.meta.description}`;
   const description = dict.bio.description;
 
@@ -41,40 +40,13 @@ export default define.page<typeof handler>(({ data }) => {
 
   return (
     <>
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta name="keywords" content={siteDefaults.keywords} />
-        <meta name="author" content={siteDefaults.name} />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonical} />
-        <meta property="og:site_name" content={siteDefaults.name} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        <meta property="og:image" content={`${siteUrl}${siteDefaults.image}`} />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:creator" content={siteDefaults.twitter} />
-        <meta name="twitter:title" content={title} />
-        <meta name="twitter:description" content={description} />
-        <meta
-          name="twitter:image"
-          content={`${siteUrl}${siteDefaults.image}`}
-        />
-
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="en" href={canonicalUrl("/en")} />
-        <link rel="alternate" hrefLang="es" href={canonicalUrl("/es")} />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={canonicalUrl("/en")}
-        />
-      </Head>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <SEO
+        title={title}
+        description={description}
+        path=""
+        locale={locale}
+        jsonLd={jsonLd}
+      />
       <div class="space-y-8">
         <div>
           <div class="mb-6">

@@ -8,8 +8,7 @@ import {
   type SpotifyTrack,
 } from "../../lib/spotify.ts";
 import { BackNavigation } from "../../components/back-navigation.tsx";
-import { Head } from "fresh/runtime";
-import { canonicalUrl, siteDefaults } from "../../utils/seo.ts";
+import { SEO } from "../../components/seo.tsx";
 
 interface MusicData {
   topTracks: SpotifyTrack[];
@@ -63,23 +62,15 @@ export const handler = define.handlers(async (ctx) => {
 
 export default define.page<typeof handler>(({ data }) => {
   const { dict, locale, musicData } = data;
-  const canonical = canonicalUrl(`/${locale}/music`);
 
   return (
     <section class="space-y-8 md:space-y-12">
-      <Head>
-        <title>{dict.pages.music.title}</title>
-        <meta name="description" content={dict.pages.music.description} />
-        <meta name="keywords" content={siteDefaults.keywords} />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="en" href={canonicalUrl("/en/music")} />
-        <link rel="alternate" hrefLang="es" href={canonicalUrl("/es/music")} />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={canonicalUrl("/en/music")}
-        />
-      </Head>
+      <SEO
+        title={dict.pages.music.title}
+        description={dict.pages.music.description}
+        path="/music"
+        locale={locale}
+      />
       <BackNavigation
         href={`/${locale}`}
         label={dict.navigation.backToEarth}

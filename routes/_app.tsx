@@ -16,6 +16,7 @@ export default define.page(function App({ Component, url }: PageProps) {
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="index, follow" />
+        <meta name="color-scheme" content="light dark" />
         <title>Jheyson Saavedra</title>
         <style>
           {`@font-face{font-family:"Inter";src:url("/fonts/InterVariable.woff2") format("woff2");font-weight:100 900;font-display:swap}

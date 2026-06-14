@@ -4,8 +4,7 @@ import { normalizeLocale } from "../../utils/locale.ts";
 import { workExperiences } from "../../content/work.ts";
 import { BackNavigation } from "../../components/back-navigation.tsx";
 import { TechBadgeList } from "../../components/tech-badge.tsx";
-import { Head } from "fresh/runtime";
-import { canonicalUrl, siteDefaults } from "../../utils/seo.ts";
+import { SEO } from "../../components/seo.tsx";
 
 export const handler = define.handlers(async (ctx) => {
   const locale = normalizeLocale(ctx.params.locale);
@@ -16,23 +15,15 @@ export const handler = define.handlers(async (ctx) => {
 export default define.page<typeof handler>(({ data }) => {
   const { dict, locale } = data;
   const experiences = workExperiences[locale];
-  const canonical = canonicalUrl(`/${locale}/work`);
 
   return (
     <div class="space-y-8 md:space-y-12">
-      <Head>
-        <title>{dict.pages.work.title}</title>
-        <meta name="description" content={dict.pages.work.description} />
-        <meta name="keywords" content={siteDefaults.keywords} />
-        <link rel="canonical" href={canonical} />
-        <link rel="alternate" hrefLang="en" href={canonicalUrl("/en/work")} />
-        <link rel="alternate" hrefLang="es" href={canonicalUrl("/es/work")} />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={canonicalUrl("/en/work")}
-        />
-      </Head>
+      <SEO
+        title={dict.pages.work.title}
+        description={dict.pages.work.description}
+        path="/work"
+        locale={locale}
+      />
       <BackNavigation
         href={`/${locale}`}
         label={dict.navigation.backToBase}

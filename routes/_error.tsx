@@ -1,5 +1,6 @@
 import { HttpError } from "fresh";
 import type { PageProps } from "fresh";
+import { Head } from "fresh/runtime";
 
 function ArrowIcon() {
   return (
@@ -21,43 +22,54 @@ function ArrowIcon() {
   );
 }
 
-export default function ErrorPage({ error }: PageProps) {
+export default function ErrorPage({ error, url }: PageProps) {
   const is404 = error instanceof HttpError && error.status === 404;
+  const locale = url.pathname.split("/")[1] === "es" ? "es" : "en";
 
   if (is404) {
     return (
-      <section class="text-center py-10 md:py-16">
-        <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
-          404
-        </h1>
-        <h2 class="font-semibold text-2xl mb-6 md:mb-8 tracking-tighter font-serif">
-          Lost in space
-        </h2>
-        <p class="mb-6 md:mb-8 max-w-md mx-auto">
-          This page drifted away into the void. Let's get you back to solid
-          ground.
-        </p>
-        <a
-          href="/en"
-          class="inline-flex items-center gap-2"
-        >
-          <ArrowIcon />
-          Back to earth
-        </a>
-      </section>
+      <>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <section class="text-center py-10 md:py-16">
+          <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
+            404
+          </h1>
+          <h2 class="font-semibold text-2xl mb-6 md:mb-8 tracking-tighter font-serif">
+            Lost in space
+          </h2>
+          <p class="mb-6 md:mb-8 max-w-md mx-auto">
+            This page drifted away into the void. Let's get you back to solid
+            ground.
+          </p>
+          <a
+            href={`/${locale}`}
+            class="inline-flex items-center gap-2"
+          >
+            <ArrowIcon />
+            Back to earth
+          </a>
+        </section>
+      </>
     );
   }
 
   return (
-    <section class="text-center py-10 md:py-16">
-      <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
-        {error instanceof HttpError ? error.status : "500"}
-      </h1>
-      <p class="mb-6 md:mb-8">Something went wrong. Please try again.</p>
-      <a href="/en" class="inline-flex items-center gap-2">
-        <ArrowIcon />
-        Go home
-      </a>
-    </section>
+    <>
+      <Head>
+        <meta name="robots" content="noindex" />
+      </Head>
+      <section class="text-center py-10 md:py-16">
+        <h1 class="font-semibold text-6xl mb-4 tracking-tighter font-serif">
+          {error instanceof HttpError ? error.status : "500"}
+        </h1>
+        <p class="mb-6 md:mb-8">Something went wrong. Please try again.</p>
+        <a href={`/${locale}`} class="inline-flex items-center gap-2">
+          <ArrowIcon />
+          Go home
+        </a>
+      </section>
+    </>
   );
 }

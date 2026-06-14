@@ -17,7 +17,3 @@ I'll be writing about:
 - **Life** — the occasional reflection on building a life around curiosity.
 
 Stay tuned for more.
-
-1. hola
-2. mundo
-3. como

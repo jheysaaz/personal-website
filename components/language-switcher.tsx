@@ -14,7 +14,7 @@ export function LanguageSwitcher({ pathname }: LanguageSwitcherProps) {
   };
 
   return (
-    <div class="language-switcher flex gap-2 text-sm">
+    <div class="language-switcher flex gap-2 text-sm select-none">
       <a
         href={getLocalizedPath("en")}
         class={currentLocale === "en" ? "active" : ""}
