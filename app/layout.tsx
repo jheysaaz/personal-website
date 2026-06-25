@@ -13,10 +13,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="en" className="h-full antialiased">
       <head>
         <meta name="color-scheme" content="light dark" />
-        <link rel="preload" as="font" href="/fonts/InterVariable.woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href="/fonts/InterVariable-Italic.woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href="/fonts/Newsreader[opsz,wght].woff2" crossOrigin="anonymous" />
-        <link rel="preload" as="font" href="/fonts/Newsreader-Italic[opsz,wght].woff2" crossOrigin="anonymous" />
         <style>{`@font-face{font-family:"Inter";src:url("/fonts/InterVariable.woff2") format("woff2");font-weight:100 900;font-display:swap}
 @font-face{font-family:"Inter";src:url("/fonts/InterVariable-Italic.woff2") format("woff2");font-weight:100 900;font-style:italic;font-display:swap}
 @font-face{font-family:"Newsreader";src:url("/fonts/Newsreader[opsz,wght].woff2") format("woff2");font-weight:200 800;font-display:swap}
