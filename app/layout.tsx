@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,6 +22,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
