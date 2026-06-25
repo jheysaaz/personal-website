@@ -162,7 +162,7 @@ body {
   display: inline-block;
   width: 1.5rem;
   text-align: center;
-  font-size: 0.55rem;
+  font-size: 0.57rem;
   vertical-align: middle;
   font-family: var(--font-serif);
   color: hsl(var(--muted-foreground));
@@ -225,10 +225,10 @@ body {
 }
 
 ::view-transition-old(page) {
-  animation: 300ms ease-in both fade-out;
+  animation: 250ms ease-in both fade-out;
 }
 ::view-transition-new(page) {
-  animation: 350ms ease-out 300ms both fade-in;
+  animation: 300ms ease-out 250ms both fade-in;
 }
 
 @keyframes fade-out {
