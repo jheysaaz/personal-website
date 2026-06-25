@@ -6,9 +6,11 @@ build
 coverage
 cov_profile/
 .env
+.env.local
 .vercel
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
 *.pem
 *.log*
+.agents/

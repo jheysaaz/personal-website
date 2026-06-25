@@ -1,0 +1,80 @@
+{
+  "bio": {
+    "greeting": "Hello, I'm",
+    "name": "Jheyson Saavedra",
+    "description": "I study philosophy and work with data. They're less different than most people assume.",
+    "background": "I've been building and programming since I was a kid, driven by curiosity about how systems behave. Now it mostly shows up as dashboards, automations, and tools I build because something was bothering me. I'm also drawn to space — probably because it's the clearest reminder of how much there is left to understand.",
+    "personal": {
+      "prefix": "I love to read, listen to music, and build tools. You can see my",
+      "work": "work",
+      "afterWork": ", explore my",
+      "lab": "lab",
+      "afterLab": " experiments, check out my",
+      "library": "library",
+      "afterLibrary": " of writings, or just vibe to my",
+      "music": "music taste",
+      "suffix": "."
+    },
+    "connect": {
+      "prefix": "You can check out my",
+      "code": "code",
+      "afterCode": ", connect with me on",
+      "linkedin": "LinkedIn",
+      "afterLinkedin": ", or",
+      "twitter": "follow me",
+      "afterTwitter": " online. Feel free to",
+      "email": "reach out",
+      "suffix": " if you want to chat by email."
+    }
+  },
+  "nav": {
+    "home": "home",
+    "work": "work",
+    "library": "library",
+    "lab": "lab",
+    "music": "music",
+    "contact": "contact"
+  },
+  "social": {
+    "github": "github",
+    "linkedin": "linkedin",
+    "twitter": "x"
+  },
+  "meta": {
+    "description": "Data analyst and philosophy student"
+  },
+  "pages": {
+    "work": {
+      "title": "Work",
+      "description": "A few highlights from my professional experience."
+    },
+    "library": {
+      "title": "Library",
+      "description": "Philosophical essays, academic writing, and reflections.",
+      "wip": "No posts yet"
+    },
+    "lab": {
+      "title": "Lab",
+      "description": "Projects, experiments, and tools I've built."
+    },
+    "music": {
+      "title": "Music",
+      "description": "What I'm listening to, powered by Spotify. Follow me on",
+      "mySpotify": "my Spotify",
+      "topTracks": "Top Tracks",
+      "topArtists": "Top Artists",
+      "spotify": "Open on Spotify",
+      "error": "Unable to load music data. Please try again later."
+    },
+    "notFound": {
+      "title": "Lost in space",
+      "description": "This page drifted away into the void. Let's get you back to solid ground."
+    }
+  },
+  "navigation": {
+    "backToEarth": "Back to earth",
+    "backToBase": "Back to base",
+    "returnToShip": "Return to ship",
+    "backToGround": "Back to ground control"
+  }
+}

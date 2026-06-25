@@ -1,63 +1,59 @@
-# Jheyson Saavedra - Portfolio
+# Jheyson Saavedra — Portfolio
 
-A personal portfolio website showcasing the intersection of philosophy and data
-analysis.
+A personal portfolio website: philosophy, data analysis, and creative work.
 
-## 🚀 Built With
+## Built With
 
-- **Fresh 2.3** - Deno web framework with island architecture
-- **Deno** - TypeScript-first runtime
-- **Tailwind CSS v4** - Modern styling
-- **Preact** - Lightweight React alternative
-- **Inter & Newsreader** - Typography system
-- **i18n Support** - English and Spanish
+- **Next.js 16** — React framework with server components
+- **Tailwind CSS v4** — Utility-first styling
+- **next-intl** — Internationalization (EN/ES)
+- **Inter & Newsreader** — Typography
+- **ViewTransition API** — Page transitions
 
-## 🌐 Features
+## Features
 
-- **Bilingual** - Auto-detects browser language, supports EN/ES
-- **Dark Mode** - Respects system preferences
-- **Responsive** - Works on all devices
-- **Performance** - Server-rendered with zero JS by default
-- **Accessibility** - Semantic HTML and proper contrast
+- **Bilingual** — `en` / `es` with `localePrefix: "always"`
+- **Responsive** — Desktop sidebar (Dock effect) + mobile overlay nav
+- **Page transitions** — Crossfade + vertical slide via ViewTransition
+- **Spotify integration** — Top tracks and artists
+- **RSS & sitemap** — SEO-friendly
+- **Cache Components** — Instant navigation
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 personal-website/
-├── routes/               # File-based routing
-├── components/           # Server-only components
-├── content/              # Data for work, projects
-├── i18n/                 # Internationalization
-├── lib/                  # Utilities
-├── static/               # Static assets
-└── utils/                # Helpers
+├── app/                  # Next.js App Router
+│   ├── [locale]/         # Route segments (page, work, lab, library, music)
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── not-found.tsx
+│   ├── robots.ts
+│   ├── sitemap.ts
+│   └── rss.xml/
+├── components/           # UI components
+│   ├── side-nav.tsx      # Desktop sidebar (Dock effect)
+│   ├── mobile-nav.tsx    # Mobile overlay navigation
+│   ├── language-switcher.tsx
+│   ├── spotify.tsx
+│   └── tech-badge.tsx
+├── content/              # Work & project data
+├── lib/                  # Utilities (seo, spotify, library, cache)
+├── messages/             # i18n JSON dictionaries
+├── assets/               # Markdown library posts
+└── scripts/              # Developer utilities
 ```
 
-## 🛠️ Development
+## Development
 
 ```bash
-# Install dependencies
-deno install
-
-# Start development server
-deno task dev
-
-# Build for production
-deno task build
-
-# Start production server
-deno task start
+pnpm install
+pnpm dev        # Start dev server
+pnpm build      # Production build
+pnpm test       # Run tests
 ```
 
-## 📄 Pages
-
-- **Home** (`/en`, `/es`) - Bio and navigation
-- **Work** (`/en/work`, `/es/work`) - Professional experience
-- **Library** (`/en/library`, `/es/library`) - Philosophical essays (WIP)
-- **Lab** (`/en/lab`, `/es/lab`) - Projects and experiments
-- **Music** (`/en/music`, `/es/music`) - Spotify top tracks/artists
-
-## 🔐 Environment
+## Environment
 
 ```
 SITE_URL=https://jheysonsaavedra.com
@@ -66,16 +62,9 @@ SPOTIFY_CLIENT_SECRET=...
 SPOTIFY_REFRESH_TOKEN=...
 ```
 
-## ✅ Quality
-
-Run these regularly:
+## Quality
 
 ```bash
-deno fmt
-deno lint
-deno test
+pnpm lint
+pnpm test
 ```
-
----
-
-Built with ❤️ and ☕ by [Jheyson Saavedra](mailto:contact@jheysonsaavedra.com)
