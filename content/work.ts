@@ -1,4 +1,4 @@
-import type { LocalizedString } from "./types";
+import type { LocalizedString } from "./types.ts";
 
 export interface WorkExperience {
   title: LocalizedString;
@@ -11,29 +11,39 @@ export interface WorkExperience {
 
 export const workExperiences: WorkExperience[] = [
   {
-    title: { en: "Customer Experience Analyst", es: "Analista de Experiencia del Cliente" },
+    title: {
+      en: "Customer Experience Analyst",
+      es: "Analista de Experiencia del Cliente",
+    },
     company: "Holafly",
     period: { en: "Jun 2025 – Mar 2026", es: "Jun 2025 – Mar 2026" },
     description: {
-      en: "Remote contract role focusing on fraud detection and refunds processing with operational reporting.",
-      es: "Rol remoto por contrato enfocado en procesamiento de reembolsos, detección de fraude y reportes operacionales.",
+      en:
+        "Remote contract role focusing on fraud detection and refunds processing with operational reporting.",
+      es:
+        "Rol remoto por contrato enfocado en procesamiento de reembolsos, detección de fraude y reportes operacionales.",
     },
     achievements: [
       {
-        en: "Identified fraud patterns contributing to reduction in undetected chargeback exposure",
-        es: "Identifiqué patrones de fraude que contribuyeron a la reducción de la exposición a disputas bancarias",
+        en:
+          "Identified fraud patterns contributing to reduction in undetected chargeback exposure",
+        es:
+          "Identifiqué patrones de fraude que contribuyeron a la reducción de la exposición a disputas bancarias",
       },
       {
         en: "Supported better decision-making with data-backed reporting",
         es: "Mejoré la toma de decisiones mediante informes basados en datos",
       },
       {
-        en: "Identified patterns in refund requests (behavior, geography, product, timing)",
-        es: "Identifiqué patrones en las solicitudes de reembolso (comportamiento, ubicación geográfica, producto, momento)",
+        en:
+          "Identified patterns in refund requests (behavior, geography, product, timing)",
+        es:
+          "Identifiqué patrones en las solicitudes de reembolso (comportamiento, ubicación geográfica, producto, momento)",
       },
       {
         en: "Automated parts of the refund analysis/reporting",
-        es: "Automatizé partes del análisis y la elaboración de informes de reembolsos",
+        es:
+          "Automatizé partes del análisis y la elaboración de informes de reembolsos",
       },
     ],
     technologies: [
@@ -50,8 +60,10 @@ export const workExperiences: WorkExperience[] = [
     company: "Sutherland Global Services",
     period: { en: "Dec 2024 – Apr 2025", es: "Dic 2024 – Abr 2025" },
     description: {
-      en: "Investigated chargebacks and fraud claims using specialized risk assessment tools.",
-      es: "Investigué chargebacks y reclamos de fraude usando herramientas especializadas de evaluación de riesgo.",
+      en:
+        "Investigated chargebacks and fraud claims using specialized risk assessment tools.",
+      es:
+        "Investigué chargebacks y reclamos de fraude usando herramientas especializadas de evaluación de riesgo.",
     },
     achievements: [
       {
@@ -59,8 +71,10 @@ export const workExperiences: WorkExperience[] = [
         es: "Mantuve un excelente nivel de precisión en evaluaciones de riesgo",
       },
       {
-        en: "Analyzed multi-source transactional data for legitimacy verification",
-        es: "Analicé datos transaccionales de múltiples fuentes para verificación de legitimidad",
+        en:
+          "Analyzed multi-source transactional data for legitimacy verification",
+        es:
+          "Analicé datos transaccionales de múltiples fuentes para verificación de legitimidad",
       },
     ],
     technologies: [
@@ -71,12 +85,17 @@ export const workExperiences: WorkExperience[] = [
     ],
   },
   {
-    title: { en: "Customer Service Associate", es: "Especialista en Servicio al Cliente" },
+    title: {
+      en: "Customer Service Associate",
+      es: "Especialista en Servicio al Cliente",
+    },
     company: "Sutherland Global Services",
     period: { en: "Aug 2024 – Dec 2024", es: "Ago 2024 – Dic 2024" },
     description: {
-      en: "Resolved customer inquiries across multiple channels while meeting performance KPIs.",
-      es: "Resolví consultas de clientes en múltiples canales cumpliendo con KPIs de rendimiento.",
+      en:
+        "Resolved customer inquiries across multiple channels while meeting performance KPIs.",
+      es:
+        "Resolví consultas de clientes en múltiples canales cumpliendo con KPIs de rendimiento.",
     },
     achievements: [
       {
@@ -85,7 +104,8 @@ export const workExperiences: WorkExperience[] = [
       },
       {
         en: "Coordinated with partner banks to resolve transaction disputes",
-        es: "Coordiné con bancos socios para resolver disputas de transacciones",
+        es:
+          "Coordiné con bancos socios para resolver disputas de transacciones",
       },
     ],
     technologies: [

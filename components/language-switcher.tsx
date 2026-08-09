@@ -1,37 +1,29 @@
-"use client";
+import { locales } from "@/lib/i18n.ts";
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+const LANG_RE = /^\/(en|es)(?=\/|$)/;
 
-const locales = ["en", "es"] as const;
-
-export function LanguageSwitcher() {
-  const pathname = usePathname();
-
-  const currentLocale = pathname.startsWith("/es") ? "es" : "en";
-
-  function getLocalizedPath(locale: string): string {
-    const clean = locales.reduce<string>((p, l) => {
-      return p.startsWith(`/${l}`) ? p.replace(`/${l}`, "") || "/" : p;
-    }, pathname);
-    return clean === "/" ? `/${locale}` : `/${locale}${clean}`;
-  }
+export function LanguageSwitcher({ currentPath }: { currentPath: string }) {
+  const pathWithoutLocale = currentPath.replace(LANG_RE, "") || "/";
+  const currentLocale = currentPath.startsWith("/es") ? "es" : "en";
 
   return (
-    <div className="flex gap-2 text-sm select-none">
-      {locales.map((locale) => (
-        <Link
-          key={locale}
-          href={getLocalizedPath(locale)}
-          className={
-            currentLocale === locale
+    <div class="flex gap-2 text-sm select-none">
+      {locales.map((locale) => {
+        const href = pathWithoutLocale === "/"
+          ? `/${locale}`
+          : `/${locale}${pathWithoutLocale}`;
+        return (
+          <a
+            key={locale}
+            href={href}
+            class={currentLocale === locale
               ? "no-underline opacity-100 font-semibold"
-              : "no-underline opacity-75 hover:opacity-100 transition-opacity"
-          }
-        >
-          {locale.toUpperCase()}
-        </Link>
-      ))}
+              : "no-underline opacity-75 hover:opacity-100 transition-opacity"}
+          >
+            {locale.toUpperCase()}
+          </a>
+        );
+      })}
     </div>
   );
 }

@@ -1,11 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkGfm from "remark-gfm";
-import remarkRehype from "remark-rehype";
-import rehypeSanitize from "rehype-sanitize";
-import rehypeStringify from "rehype-stringify";
+import { render as markdownRender } from "@dreamer/markdown";
 
 export interface Post {
   slug: string;
@@ -26,10 +21,10 @@ interface RawPost {
 
 let cached: RawPost[] | null = null;
 
-const LIBRARY_DIR = path.join(process.cwd(), "assets", "library");
+const LIBRARY_DIR = path.join(Deno.cwd(), "assets", "library");
 
 function isDev(): boolean {
-  return process.env.NODE_ENV === "development";
+  return !Deno.env.get("DENO_DEPLOYMENT_ID");
 }
 
 export function parseFrontmatter(text: string): {
@@ -61,20 +56,27 @@ export function parseFrontmatter(text: string): {
   };
 }
 
-async function renderMarkdown(content: string): Promise<string> {
-  const result = await unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkRehype)
-    .use(rehypeSanitize)
-    .use(rehypeStringify)
-    .process(content);
-
-  return String(result);
+function renderMarkdown(content: string): string {
+  return markdownRender(content, {
+    frontMatter: false,
+    toc: false,
+    gfm: true,
+    math: false,
+    containers: false,
+    emoji: false,
+    footnotes: false,
+    definitionList: false,
+    highlight_text: false,
+    insertDelete: false,
+    keyboard: false,
+    superSubScript: false,
+    abbreviations: false,
+    autolink: true,
+  }).html;
 }
 
-export async function toPost(p: RawPost): Promise<Post> {
-  const rendered = await renderMarkdown(p.content);
+export function toPost(p: RawPost): Post {
+  const rendered = renderMarkdown(p.content);
   const firstLine = p.content.split("\n\n")[0] ?? "";
   const excerpt = p.title === "Untitled"
     ? ""

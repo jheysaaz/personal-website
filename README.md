@@ -4,53 +4,53 @@ A personal portfolio website: philosophy, data analysis, and creative work.
 
 ## Built With
 
-- **Next.js 16** — React framework with server components
+- **Fresh 2** — The next-gen web framework for Deno
+- **Preact** — Fast, tiny React alternative (islands architecture)
 - **Tailwind CSS v4** — Utility-first styling
-- **next-intl** — Internationalization (EN/ES)
+- **@intlkit/intlkit** — Internationalization (EN/ES)
+- **@dreamer/markdown** — Library post rendering
 - **Inter & Newsreader** — Typography
-- **ViewTransition API** — Page transitions
+- **View Transitions API** — Page transitions
 
 ## Features
 
-- **Bilingual** — `en` / `es` with `localePrefix: "always"`
+- **Bilingual** — `en` / `es` with locale-first URLs (`/en`, `/es`)
 - **Responsive** — Desktop sidebar (Dock effect) + mobile overlay nav
-- **Page transitions** — Crossfade + vertical slide via ViewTransition
+- **Page transitions** — Crossfade + vertical slide via View Transitions
 - **Spotify integration** — Top tracks and artists
-- **RSS & sitemap** — SEO-friendly
-- **Cache Components** — Instant navigation
+- **RSS, sitemap & llms.txt** — SEO-friendly
+- **Islands** — Interactive components ship minimal JS
 
 ## Architecture
 
 ```
 personal-website/
-├── app/                  # Next.js App Router
-│   ├── [locale]/         # Route segments (page, work, lab, library, music)
-│   ├── globals.css
-│   ├── layout.tsx
-│   ├── not-found.tsx
-│   ├── robots.ts
-│   ├── sitemap.ts
-│   └── rss.xml/
-├── components/           # UI components
+├── routes/               # Fresh file-system routes
+│   ├── [locale]/         # Locale segments (page, work, lab, library, music)
+│   ├── _app.tsx          # Root layout shell
+│   ├── _middleware.ts    # Locale redirect + state
+│   └── _error.tsx        # 404 / error page
+├── islands/              # Interactive (client) components
 │   ├── side-nav.tsx      # Desktop sidebar (Dock effect)
-│   ├── mobile-nav.tsx    # Mobile overlay navigation
-│   ├── language-switcher.tsx
-│   ├── spotify.tsx
-│   └── tech-badge.tsx
+│   └── mobile-nav.tsx    # Mobile overlay navigation
+├── components/           # Server-rendered UI components
 ├── content/              # Work & project data
-├── lib/                  # Utilities (seo, spotify, library, cache)
+├── lib/                  # Utilities (seo, spotify, library, cache, i18n)
 ├── messages/             # i18n JSON dictionaries
-├── assets/               # Markdown library posts
+├── assets/               # Global CSS + Markdown library posts
+├── static/               # Fonts & favicon
 └── scripts/              # Developer utilities
 ```
 
 ## Development
 
 ```bash
-pnpm install
-pnpm dev        # Start dev server
-pnpm build      # Production build
-pnpm test       # Run tests
+deno install        # Install dependencies
+deno task dev       # Start dev server
+deno task build     # Production build
+deno task start     # Serve production build
+deno task check     # fmt + lint + typecheck
+deno task test      # Run tests
 ```
 
 ## Environment
@@ -62,9 +62,8 @@ SPOTIFY_CLIENT_SECRET=...
 SPOTIFY_REFRESH_TOKEN=...
 ```
 
-## Quality
+## Deployment
 
 ```bash
-pnpm lint
-pnpm test
+deno task deploy    # deployctl deploy --project=jheysonsaavedra --prod
 ```

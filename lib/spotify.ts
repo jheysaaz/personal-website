@@ -1,6 +1,6 @@
-const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
-const REFRESH_TOKEN = process.env.SPOTIFY_REFRESH_TOKEN;
+const CLIENT_ID = Deno.env.get("SPOTIFY_CLIENT_ID");
+const CLIENT_SECRET = Deno.env.get("SPOTIFY_CLIENT_SECRET");
+const REFRESH_TOKEN = Deno.env.get("SPOTIFY_REFRESH_TOKEN");
 
 const TOP_TRACKS_ENDPOINT = "https://api.spotify.com/v1/me/top/tracks";
 const TOP_ARTISTS_ENDPOINT = "https://api.spotify.com/v1/me/top/artists";

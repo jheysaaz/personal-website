@@ -1,7 +1,6 @@
-import { describe, it, expect } from "vitest";
-import { existsSync } from "node:fs";
-import en from "@/messages/en.json";
-import es from "@/messages/es.json";
+import { assert, assertEquals } from "@std/assert";
+import en from "@/messages/en.json" with { type: "json" };
+import es from "@/messages/es.json" with { type: "json" };
 
 function flattenKeys(obj: Record<string, unknown>, prefix = ""): string[] {
   const keys: string[] = [];
@@ -16,36 +15,29 @@ function flattenKeys(obj: Record<string, unknown>, prefix = ""): string[] {
   return keys;
 }
 
-describe("i18n message files", () => {
-  it("message files exist", () => {
-    expect(existsSync("messages/en.json")).toBe(true);
-    expect(existsSync("messages/es.json")).toBe(true);
-  });
+Deno.test("i18n message files both locales have the same top-level keys", () => {
+  const enKeys = Object.keys(en).sort();
+  const esKeys = Object.keys(es).sort();
+  assertEquals(enKeys, esKeys);
+});
 
-  it("both locales have the same top-level keys", () => {
-    const enKeys = Object.keys(en).sort();
-    const esKeys = Object.keys(es).sort();
-    expect(enKeys).toEqual(esKeys);
-  });
+Deno.test("i18n message files both locales have identical key structure", () => {
+  const enFlat = flattenKeys(en).sort();
+  const esFlat = flattenKeys(es).sort();
+  assertEquals(enFlat, esFlat);
+});
 
-  it("both locales have identical key structure", () => {
-    const enFlat = flattenKeys(en).sort();
-    const esFlat = flattenKeys(es).sort();
-    expect(enFlat).toEqual(esFlat);
-  });
-
-  it("all string values are non-empty", () => {
-    function checkEmpty(obj: Record<string, unknown>, path = "") {
-      for (const [key, value] of Object.entries(obj)) {
-        const fullPath = path ? `${path}.${key}` : key;
-        if (typeof value === "string") {
-          expect(value.trim().length, `${fullPath} in en.json`).toBeGreaterThan(0);
-        } else if (value && typeof value === "object") {
-          checkEmpty(value as Record<string, unknown>, fullPath);
-        }
+Deno.test("i18n message files all string values are non-empty", () => {
+  function checkEmpty(obj: Record<string, unknown>, path = "") {
+    for (const [key, value] of Object.entries(obj)) {
+      const fullPath = path ? `${path}.${key}` : key;
+      if (typeof value === "string") {
+        assert(value.trim().length > 0, `${fullPath} in en.json`);
+      } else if (value && typeof value === "object") {
+        checkEmpty(value as Record<string, unknown>, fullPath);
       }
     }
-    checkEmpty(en);
-    checkEmpty(es);
-  });
+  }
+  checkEmpty(en);
+  checkEmpty(es);
 });
