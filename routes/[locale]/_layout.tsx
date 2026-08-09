@@ -1,8 +1,6 @@
 import { define } from "@/utils/state.ts";
-import SideNav from "@/islands/side-nav.tsx";
-import MobileNav from "@/islands/mobile-nav.tsx";
+import Nav, { type NavItem } from "@/islands/nav.tsx";
 import { LanguageSwitcher } from "@/components/language-switcher.tsx";
-import type { NavItem } from "@/islands/side-nav.tsx";
 
 export default define.layout((props) => {
   const { locale, intl } = props.state;
@@ -20,17 +18,14 @@ export default define.layout((props) => {
   ];
 
   return (
-    <>
-      <SideNav items={navItems} currentPath={props.url.pathname} />
-      <main class="max-w-2xl mx-auto px-4 py-6 md:py-12 sm:px-6 lg:px-8 w-full relative">
-        <div class="flex items-center justify-between md:justify-end mb-3 md:mb-8">
-          <MobileNav items={navItems} currentPath={props.url.pathname} />
-          <LanguageSwitcher currentPath={props.url.pathname} />
-        </div>
-        <div id="page-view">
-          <props.Component />
-        </div>
-      </main>
-    </>
+    <main class="max-w-2xl mx-auto px-4 py-6 md:py-12 sm:px-6 lg:px-8 w-full relative">
+      <div class="flex items-center justify-between md:justify-end mb-3 md:mb-8">
+        <Nav items={navItems} currentPath={props.url.pathname} />
+        <LanguageSwitcher currentPath={props.url.pathname} />
+      </div>
+      <div id="page-view">
+        <props.Component />
+      </div>
+    </main>
   );
 });

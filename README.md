@@ -31,8 +31,7 @@ personal-website/
 │   ├── _middleware.ts    # Locale redirect + state
 │   └── _error.tsx        # 404 / error page
 ├── islands/              # Interactive (client) components
-│   ├── side-nav.tsx      # Desktop sidebar (Dock effect)
-│   └── mobile-nav.tsx    # Mobile overlay navigation
+│   ├── nav.tsx            # Desktop dock + mobile overlay navigation
 ├── components/           # Server-rendered UI components
 ├── content/              # Work & project data
 ├── lib/                  # Utilities (seo, spotify, library, cache, i18n)
